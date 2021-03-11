@@ -4,7 +4,6 @@ import (
 	"fmt"
 
 	"github.com/yrhki/gocalibre/calibre-web"
-	"github.com/yrhki/gocalibre/cmd/calibrecli/upload"
 )
 
 
@@ -51,11 +50,6 @@ func listAuthors(api *calibre.API) {
 func deleteBook(api *calibre.API, id uint64) {
 	err := api.DeleteBook(id)
 	must(err, "deleting book", nil)
-}
-
-func downloadBook(api *calibre.API, url string) {
-	err := upload.Download(api, url)
-	must(err, "downloading book", nil)
 }
 
 func uploadFile(api *calibre.API, uri string, formats []string) (*calibre.Book, error) {
